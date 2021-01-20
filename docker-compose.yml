@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    command: gunicorn transavia.wsgi:application --workers 8 --threads 8 -t 240 --bind 0.0.0.0:8000 
+    volumes:
+      - ./:/usr/src/transavia/
+      - static_volume:/usr/src/transavia/static
+      - media_volume:/usr/src/transavia/media
+    environment:
+      - DATABASE_URL=psql://dastan:password@postgres:5432/transavia
+      - DJANGO_SUPERUSER_USER=admin
+      - DJANGO_SUPERUSER_EMAIL=dastan211298@gmail.com
+      - DJANGO_SUPERUSER_PASSWORD=pass
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      main:
+        aliases:
+          - django
+      db:
+      cache:
+      
+  postgres:
+    restart: always
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data_backups:/backups
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=transavia
+      - POSTGRES_USER=dastan
+      - POSTGRES_PASSWORD=password
+    expose:
+      - 5432
+    ports:
+      - 6543:5432
+    networks:
+      db: 
+  
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:1337
+    volumes:
+      - static_volume:/static
+      - media_volume:/media
+    depends_on:
+      - postgres
+      - django 
+    networks:
+      main: 
+        aliases: 
+          - redis
+  
+  redis:
+    restart: always
+    image: redis:latest
+    expose:
+      - "6379"
+    networks:
+      main: {}
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  redis:
+  postgres_data_backups:
+  
+networks:
+  main: {}
+  db: {}
+  cache: {}

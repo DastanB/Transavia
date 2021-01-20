@@ -5,3 +5,6 @@ AIRPORT_URL = 'http://staging-ws.epower.amadeus.com/wstrans/MasterData/Airports.
 
 # Request timeout
 TIMEOUT = 15
+
+# Cache time ti live
+CACHE_TTL = 20
