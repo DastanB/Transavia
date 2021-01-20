@@ -12,16 +12,16 @@ then
 fi
 
 
-python manage.py flush --no-input
 python manage.py migrate --no-input
 python manage.py collectstatic --no-input --clear
 
 python manage.py shell -c "
 from django.contrib.auth.models import User;
-User.objects.create_superuser(
-    '${DJANGO_SUPERUSER_USER}',
-    '${DJANGO_SUPERUSER_EMAIL}',
-    '${DJANGO_SUPERUSER_PASSWORD}'
-)"
+if not User.objects.filter(username='${DJANGO_SUPERUSER_USER}').exists():
+    User.objects.create_superuser(
+        '${DJANGO_SUPERUSER_USER}',
+        '${DJANGO_SUPERUSER_EMAIL}',
+        '${DJANGO_SUPERUSER_PASSWORD}'
+    )"
 
 exec "$@"

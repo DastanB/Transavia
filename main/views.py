@@ -51,6 +51,7 @@ class CityViewSet(mixins.RetrieveModelMixin,
 
     @action(methods=['POST'], detail=False)
     def search(self, request):
+        """This action returns result of a search request using cache"""
         paginator = LimitOffsetPagination()
         paginator.page_size = 20
 
