@@ -1,0 +1,79 @@
+INFO -- 2021-01-20 09:37:51,269 -- Countries were fetched
+INFO -- 2021-01-20 09:39:21,473 -- Countries were fetched
+INFO -- 2021-01-20 10:02:16,434 -- Countries were fetched
+INFO -- 2021-01-20 10:02:17,395 -- Cities were fetched
+INFO -- 2021-01-20 10:02:29,541 -- Airports were fetched
+INFO -- 2021-01-20 12:16:40,476 -- Countries were fetched
+INFO -- 2021-01-20 12:17:37,917 -- Cities were fetched
+INFO -- 2021-01-20 12:17:38,166 -- Countries were fetched
+INFO -- 2021-01-20 12:18:13,777 -- Airports were fetched
+INFO -- 2021-01-20 12:18:14,630 -- Cities were fetched
+INFO -- 2021-01-20 12:18:14,899 -- Countries were fetched
+INFO -- 2021-01-20 12:23:53,751 -- Airports were fetched
+INFO -- 2021-01-20 12:23:54,736 -- Cities were fetched
+INFO -- 2021-01-20 12:23:54,991 -- Countries were fetched
+INFO -- 2021-01-20 12:24:13,471 -- Countries were fetched
+INFO -- 2021-01-20 12:24:14,564 -- Cities were fetched
+INFO -- 2021-01-20 12:24:27,147 -- Airports were fetched
+INFO -- 2021-01-20 12:25:13,566 -- Countries were fetched
+INFO -- 2021-01-20 12:25:14,767 -- Cities were fetched
+INFO -- 2021-01-20 12:25:27,530 -- Airports were fetched
+INFO -- 2021-01-20 12:29:31,013 -- Countries were fetched
+INFO -- 2021-01-20 12:29:32,194 -- Cities were fetched
+INFO -- 2021-01-20 12:29:44,901 -- Airports were fetched
+INFO -- 2021-01-20 12:33:06,012 -- Countries were fetched
+INFO -- 2021-01-20 12:33:07,205 -- Cities were fetched
+INFO -- 2021-01-20 12:33:20,269 -- Airports were fetched
+INFO -- 2021-01-20 12:35:43,530 -- Airports were fetched
+INFO -- 2021-01-20 12:35:44,817 -- Cities were fetched
+INFO -- 2021-01-20 12:35:45,061 -- Countries were fetched
+INFO -- 2021-01-20 14:25:26,042 -- Airports were fetched
+INFO -- 2021-01-20 14:25:26,936 -- Cities were fetched
+INFO -- 2021-01-20 14:25:27,199 -- Countries were fetched
+INFO -- 2021-01-20 14:25:59,530 -- Airports were fetched
+INFO -- 2021-01-20 14:26:00,469 -- Cities were fetched
+INFO -- 2021-01-20 14:26:00,720 -- Countries were fetched
+INFO -- 2021-01-20 14:26:00,723 -- Andorra was created
+INFO -- 2021-01-20 14:26:00,724 -- United Arab Emirates was created
+INFO -- 2021-01-20 14:27:30,731 -- Airports were fetched
+INFO -- 2021-01-20 14:27:31,796 -- Cities were fetched
+INFO -- 2021-01-20 14:27:32,040 -- Countries were fetched
+INFO -- 2021-01-20 14:27:32,043 -- Andorra was created
+INFO -- 2021-01-20 14:27:32,044 -- United Arab Emirates was created
+INFO -- 2021-01-20 14:46:33,306 -- Airports were fetched
+INFO -- 2021-01-20 14:46:34,383 -- Cities were fetched
+INFO -- 2021-01-20 14:46:34,617 -- Countries were fetched
+INFO -- 2021-01-20 14:46:34,620 --  was created
+INFO -- 2021-01-20 14:46:34,621 --  was created
+INFO -- 2021-01-20 14:46:34,622 -- Andorra was created
+INFO -- 2021-01-20 14:46:34,624 -- United Arab Emirates was created
+INFO -- 2021-01-20 14:57:40,202 -- Airports were fetched
+INFO -- 2021-01-20 14:57:41,259 -- Cities were fetched
+INFO -- 2021-01-20 14:57:41,493 -- Countries were fetched
+INFO -- 2021-01-20 14:57:41,496 --  was created
+INFO -- 2021-01-20 14:57:41,497 --  was created
+INFO -- 2021-01-20 14:57:41,499 --  was created
+INFO -- 2021-01-20 14:57:41,500 --  was created
+INFO -- 2021-01-20 14:57:41,502 -- Andorra was created
+INFO -- 2021-01-20 14:57:41,503 -- United Arab Emirates was created
+INFO -- 2021-01-20 15:05:23,952 -- Airports were fetched
+INFO -- 2021-01-20 15:05:25,000 -- Cities were fetched
+INFO -- 2021-01-20 15:05:25,245 -- Countries were fetched
+INFO -- 2021-01-20 15:05:25,248 -- Naga was created
+INFO -- 2021-01-20 15:05:25,249 -- Bauchi was created
+INFO -- 2021-01-20 15:05:25,251 -- Bahawalnagar was created
+INFO -- 2021-01-20 15:05:25,252 -- Jersey was created
+INFO -- 2021-01-20 15:05:25,255 -- Andorra was created
+INFO -- 2021-01-20 15:05:25,256 -- United Arab Emirates was created
+INFO -- 2021-01-20 15:11:01,164 -- Countries were fetched
+INFO -- 2021-01-20 15:11:02,370 -- Cities were fetched
+INFO -- 2021-01-20 15:11:15,090 -- Airports were fetched
+INFO -- 2021-01-20 15:11:51,750 -- Airports were fetched
+INFO -- 2021-01-20 15:11:52,828 -- Cities were fetched
+INFO -- 2021-01-20 15:11:53,068 -- Countries were fetched
+INFO -- 2021-01-20 15:11:53,070 -- Naga was created
+INFO -- 2021-01-20 15:11:53,072 -- Bauchi was created
+INFO -- 2021-01-20 15:11:53,074 -- Bahawalnagar was created
+INFO -- 2021-01-20 15:11:53,075 -- Jersey was created
+INFO -- 2021-01-20 15:11:53,077 -- Andorra was created
+INFO -- 2021-01-20 15:11:53,078 -- United Arab Emirates was created
