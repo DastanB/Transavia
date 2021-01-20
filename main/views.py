@@ -14,8 +14,8 @@ from rest_framework.pagination import LimitOffsetPagination
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Country, City, Airport
-from .serializers import CountryDetailedSerializer, CityDetailedSerializer, AirportSerializer
-from .services import store_countries, store_cities, store_airports
+from .serializers import CountryDetailedSerializer, CityDetailedSerializer, AirportSerializer, SearchSerializer
+from .services import store_countries, store_cities, store_airports, search_cities
 from .constants import CACHE_TTL
 
 import requests
@@ -56,29 +56,22 @@ class CityViewSet(mixins.RetrieveModelMixin,
         paginator.page_size = 20
 
         data = request.data
-        code = data['code']
+        search_serializer = SearchSerializer(data=data)
 
-        if code in cache:
-            result = cache.get(code)
-            return Response(result)
-        else: 
-            cities_by_code = City.objects.filter(code__icontains=code)
-            cities_by_name = City.objects.filter(name__icontains=code)
-            cities_by_country_code = City.objects.filter(country_code__icontains=code)
-            cities_by_state_code = City.objects.filter(state_code__icontains=code)
-            cities = (cities_by_code | cities_by_name | cities_by_country_code | cities_by_state_code).distinct().all()
-            
-            airports = Airport.objects.filter(code__icontains=code)
-            cities_by_airport = City.objects.filter(code__in=airports.values_list('city_code', flat=True).distinct())
+        if search_serializer.is_valid(raise_exception=True):
+            code = search_serializer.validated_data['code'].lower()
+            if code in cache:
+                result = cache.get(code)
+                return Response(result)
+            else: 
+                cities, all_cities = search_cities(code)
+                page = paginator.paginate_queryset(all_cities, request)
 
-            all_cities = cities.union(cities_by_airport).distinct()
-            page = paginator.paginate_queryset(all_cities, request)
+                serializer = CityDetailedSerializer(page, many=True, context = {"code": code, "cities": cities})
+                result = serializer.data
+                cache.set(code, result, timeout=CACHE_TTL)
 
-            serializer = CityDetailedSerializer(page, many=True, context = {"code": code, "cities": cities})
-            result = serializer.data
-            cache.set(code, result, timeout=CACHE_TTL)
-
-            return paginator.get_paginated_response(result)
+                return paginator.get_paginated_response(result)
 
 class AirportViewSet(mixins.RetrieveModelMixin,
                         mixins.ListModelMixin,

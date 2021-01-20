@@ -118,3 +118,17 @@ def save_airports(airports):
 def store_airports():
     airports = fetch_airports()
     return save_airports(airports)
+
+def search_cities(code):
+    cities_by_code = City.objects.filter(code__icontains=code)
+    cities_by_name = City.objects.filter(name__icontains=code)
+    cities_by_country_code = City.objects.filter(country_code__icontains=code)
+    cities_by_state_code = City.objects.filter(state_code__icontains=code)
+    cities = (cities_by_code | cities_by_name | cities_by_country_code | cities_by_state_code).distinct().all()
+    
+    airports = Airport.objects.filter(code__icontains=code)
+    cities_by_airport = City.objects.filter(code__in=airports.values_list('city_code', flat=True).distinct())
+
+    all_cities = cities.union(cities_by_airport).distinct()
+
+    return cities, all_cities

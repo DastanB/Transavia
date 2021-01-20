@@ -43,4 +43,5 @@ class CityDetailedSerializer(serializers.ModelSerializer):
         model = City
         fields = ('id', 'code', 'name', 'state_code', 'country_code', 'airports')
 
-
+class SearchSerializer(serializers.Serializer):
+    code = serializers.CharField()
